@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animals</title>
+    </head>
+    <body>
+        <h1>Animals</h1>
+        <div class="table">
+            <p>Animal Table goes here!</p>
+        </div>
+        <div class="table">
+            <p>Employee_Animal Table goes here!</p>
+        </div>
+        <div class="insert">
+            <h3>Add an Animal</h3>
+            <form action ="/action_page.php">
+                <label for="Location ID">Location ID:</label>
+                <input type="number" id="Location_ID" name="Location_ID">
+                <br>
+                <label for="Foster ID">Foster ID:</label>
+                <input type="number" id="Foster_ID" name="Foster_ID">
+                <br>
+                <label for="Name">Name:</label>
+                <input type="text" id="Name" name="Name">
+                <br>
+                <label for="Species">Species:</label>
+                <input type="radio" name="Species" value="Dog"> Dog
+                <input type="radio" name="Species" value="Cat"> Cat
+                <input type="radio" name="Species" value="Other"> Other
+                <br>
+                <label for="Sex">Sex:</label>
+                <input type="radio" name="Sex" value="Male"> Male
+                <input type="radio" name="Sex" value="Female"> Female
+                <input type="radio" name="Sex" value="Other"> Other
+                <br>
+                <label for="Breed">Breed:</label>
+                <input type="text" id="Breed" name="Breed">
+                <br>
+                <label for="Weight">Weight:</label>
+                <input type="number" id="Weight" name="Weight">
+                <br>
+                <label for="Birthdate">Birthdate:</label>
+                <input type="date" id="Birthdate" name="Birthdate">
+                <br>
+                <label for="Spayed/Neutered">Spayed/Neutered:</label>
+                <input type="radio" name="Spayed/Neutered" value="Yes"> Yes
+                <input type="radio" name="Spayed/Neutered" value="No"> No
+                <br>
+                <label for="Description">Description:</label>
+                <input type="text" id="Description" name="Description">
+                <br>
+                <input type="submit" id="submit" name="submit">
+            </form>
+        </div>
+
+        <div class = "view">
+            <h3>View by Name</h3>
+            <form action = "/action_page.php">
+                <label for="Name"></label>
+                <input type="text" id="Name" name="Name">
+                <br>
+                <label for="Species">Filter:</label>
+                <input type="radio" name="Species" value="Dog"> Dog
+                <input type="radio" name="Species" value="Cat"> Cat
+                <input type="radio" name="Species" value="Other"> Other
+                <br>
+                <input type="submit" id="submit" name="submit">
+                <br>
+            </form>
+        </div>
+
+        <div class = "adopt">
+            <h3>Adopt Animal</h3>
+            <form action = "/action_page.php">
+                <label for="Animal_ID">Enter ID:</label>
+                <input type="number" name="Animal_ID">
+                <input type="submit" id="submit" name="submit">
+            </form>
+        </div>
+    </body>
+</html>
