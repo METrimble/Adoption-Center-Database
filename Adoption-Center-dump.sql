@@ -1,6 +1,6 @@
 --Dump for Adoption Center Database 
 --Create for Employee
-drop table if exists `employee`
+drop table if exists `employee`;
 create table `employee`(
     `id` int(11) auto_increment,
     `first_name` varchar(255) not null,
@@ -17,7 +17,7 @@ create table `employee`(
 );
 
 --Create for Employee Animal
-drop table if exists `employee_animal`
+drop table if exists `employee_animal`;
 create table `employee_animal`(
     `employee_id` int(11),
     `animal_id` int(11),
@@ -27,6 +27,14 @@ create table `employee_animal`(
 );
 
 --Create for Employee Location
+drop table if exists `employee_location`;
+create table `employee_location` (
+    `employee_id` int(11),
+    `location_id` int(11),
+    primary key (`employee_id`, `location_id`),
+    foreign key (`employee_id`) references `employee` (`id`),
+    foreign key (`location_id`) references `location` (`id`)
+);
 
 --Sample Data for Employee
 insert into `employee` 
@@ -40,7 +48,7 @@ values ((select `id` from `employee` where `first_name` = 'George' and `last_nam
 --Create for Animal
 drop table if exists `animal`;
 create table `animal` (
-    `animal_id` int(11) unsigned not null auto_increment,
+    `id` int(11) unsigned not null auto_increment,
     `location_id` int(11) not null,
     `foster_parent_id` int(11) not null, 
     `animal_name`varchar(45),
@@ -58,12 +66,18 @@ create table `animal` (
 --Create for Location
 drop table if exists `location`;
 create table `location` (
-    `location_id` int(11) unsigned not null auto_increment,
-    `address` varchar(35)
+    `id` int(11) unsigned not null auto_increment,
+    `address` varchar(35) not null,
+    `city` varchar(28) not null,
+    `zip_code` varchar(10) not null,
+    `state` varchar(2), not null,
+    `sq_ft` int(11) not null,
+    `animal_in_rate` int(11) default 0
+    PRIMARY KEY (`location_id`),
 )
 
 --Create for Foster Parent 
-drop table if exists `foster_parent`
+drop table if exists `foster_parent`;
 create table `foster_parent`(
     `id` int(11) auto_increment,
     `first_name` varchar(255) not null, 
