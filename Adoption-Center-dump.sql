@@ -38,7 +38,28 @@ insert into `employee_animal`
 values ((select `id` from `employee` where `first_name` = 'George' and `last_name` = 'Bart'), 1);
 
 --Create for Animal
-
+drop table if exists `animal`;
+create table `animal` (
+    `animal_id` int(11) unsigned not null auto_increment,
+    `location_id` int(11) not null,
+    `foster_parent_id` int(11) not null, 
+    `animal_name`varchar(45),
+    `animal_species`enum('dog', 'cat', 'other') not null,
+    `animal_breed` varchar(45),
+    `animal_weight` decimal(6,4) not null,
+    `birthdate` date,
+    `spayed/neutered` tinyint not null,
+    `description` varchar(1000),
+    PRIMARY KEY (`animal_id`),
+    FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`),
+    FOREIGN KEY (`foster_parent_id`) REFERENCES `foster_parent` (`foster_parent_id`) 
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8;
+--Create for Location
+drop table if exists `location`;
+create table `location` (
+    `location_id` int(11) unsigned not null auto_increment,
+    `address` varchar(35)
+)
 
 --Create for Location
 
