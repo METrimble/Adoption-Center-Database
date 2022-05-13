@@ -14,6 +14,8 @@
             <table>
                 <tr>
                     <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Type</th>
                     <th>Pay_Rate</th>
                     <th>SSN</th>
@@ -24,6 +26,8 @@
                 </tr>
                 <tr>
                     <td>1</td>
+                    <td>Bob</td>
+                    <td>Joe</td>
                     <td>Volunteer</td>
                     <td>15</td>
                     <td>123456789</td>
@@ -67,6 +71,12 @@
             <h3>Add an Employee</h3>
             <!-- https://www.w3schools.com/tags/tag_input.asp -->
             <form action="/action_page.php">
+                <label for="First Name">First Name: </label>
+                <input type="text" id="First_Name" name="First_Name">
+                <br>
+                <label for="Last Name">Last Name: </label>
+                <input type="text" id="Last_Name" name="Last_Name">
+                <br>
                 <label for="Type">Type: </label>
                 <input type="radio" name="Type" value="Volunteer"> Volunteer
                 <input type="radio" name="Type" value="Part-Time"> Part-Time
@@ -77,7 +87,7 @@
                 <input type="number" id="Pay_Rate" name="Pay_Rate">
                 <br>
                 <label for="SSN">SSN: </label>
-                <input type="number" id="Pay_Rate" name="Pay_Rate">
+                <input type="number" id="SSN" name="SSN">
                 <br>
                 <label for="Email">Email: </label>
                 <input type="email" id="Email" name="Email">
@@ -99,6 +109,12 @@
                 <h3>Update Employee Information</h3>
                 <label for="Employee_ID">Enter the ID of the employee you'd like to update: </label>
                 <input type="number" id="Employee_ID" name="Employee_ID">
+                <br>
+                <label for="First Name">First Name: </label>
+                <input type="text" id="First_Name" name="First_Name">
+                <br>
+                <label for="Last Name">Last Name: </label>
+                <input type="text" id="Last_Name" name="Last_Name">
                 <br>
                 <label for="Type">Type: </label>
                 <input type="radio" name="Type" value="Volunteer"> Volunteer

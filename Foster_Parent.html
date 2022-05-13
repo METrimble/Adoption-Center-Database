@@ -15,6 +15,8 @@
             <table>
                 <tr>
                     <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Location_ID</th>
                     <th>Address</th>
                     <th>City</th>
@@ -23,6 +25,8 @@
                 </tr>
                 <tr>
                     <td>1</td>
+                    <td>Noa</td>
+                    <td>Barrett</td>
                     <td>1</td>
                     <td>1234 NW StreetName ave</td>
                     <td>Corvo</td>
@@ -36,6 +40,12 @@
             <h3>Add a Foster Parent</h3>
             <!-- https://www.w3schools.com/tags/tag_input.asp -->
             <form action="/action_page.php">
+                <label for="First Name">First Name: </label>
+                <input type="text" id="First_Name" name="First_Name">
+                <br>
+                <label for="Last Name">Last Name: </label>
+                <input type="text" id="Last_Name" name="Last_Name">
+                <br>
                 <label for="Location_ID">Location_ID: </label>
                 <input type="number" id="Location_ID" name="Location_ID">
                 <br>
