@@ -54,15 +54,13 @@ create table `animal` (
     FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`),
     FOREIGN KEY (`foster_parent_id`) REFERENCES `foster_parent` (`foster_parent_id`) 
 ) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8;
+
 --Create for Location
 drop table if exists `location`;
 create table `location` (
     `location_id` int(11) unsigned not null auto_increment,
     `address` varchar(35)
 )
-
---Create for Location
-
 
 --Create for Foster Parent 
 drop table if exists `foster_parent`
