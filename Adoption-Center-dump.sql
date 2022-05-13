@@ -5,7 +5,7 @@ create table `employee`(
     `id` int(11) auto_increment,
     `first_name` varchar(255) not null,
     `last_name` varchar(255) not null, 
-    `type` enum('volunteer', 'part-time', 'full-time', 'salaried') not null
+    `type` enum('Volunteer', 'Part-time', 'Full-Time', 'Salaried') not null
     `pay_rate` int(11),
     `SSN` int(9),
     `email` varchar(254),
@@ -28,6 +28,14 @@ create table `employee_animal`(
 
 --Create for Employee Location
 
+--Sample Data for Employee
+insert into `employee` 
+(`first_name`, `last_name`, `type`, `pay_rate`, `SSN`, `email`, `phone`, `hours_worked`, `hiring_date`) 
+values ('George', 'Bart', 'Volunteer', '0', '563889670', 'georgeb@gmail.com', '5097869123', '40', '2020-12-04');
+
+insert into `employee_animal`
+(`employee_id`, `animal_id`)
+values ((select `id` from `employee` where `first_name` = 'George' and `last_name` = 'Bart'), 1);
 
 --Create for Animal
 
@@ -50,3 +58,8 @@ create table `foster_parent`(
     foreign key (`location_id`) references `location` (`id`),
     unique key `full_name` (`first_name`, `last_name`)
 );
+
+--Sample Data for Foster Parent 
+insert into `foster_parent`
+(`first_name`, `last_name`, `location_id`, `address`, `city`, `zip_code`, `state`)
+values ('Barbra', 'Stevens', 1, '2435 NE Treetop Lane', 'Eugene', '97450', 'OR');
