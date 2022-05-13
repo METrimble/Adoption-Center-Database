@@ -13,11 +13,11 @@ create table `employee`(
     `hours_worked` int(11) not null default 0,
     `hiring_date` date not null, 
     primary key (`id`), 
-    unique key full_name (`first_name`, `last_name`)
+    unique key `full_name` (`first_name`, `last_name`)
 );
 
 --Create for Employee Animal
-drop table if exists `employee_animl`
+drop table if exists `employee_animal`
 create table `employee_animal`(
     `employee_id` int(11),
     `animal_id` int(11),
@@ -48,5 +48,5 @@ create table `foster_parent`(
     `state` varchar(2) not null,
     primary key (`id`),
     foreign key (`location_id`) references `location` (`id`),
-    unique key full_name (`first_name`, `last_name`)
+    unique key `full_name` (`first_name`, `last_name`)
 );
