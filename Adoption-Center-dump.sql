@@ -26,7 +26,8 @@ create table `location`(
     `state` varchar(2) not null,
     `sq_ft` int(11) not null,
     `animal_in_rate` int(11) default 0,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    unique key `full_address` (`address`, `city`, `zipcode`)
 );
 
 --Create for Foster Parent 
@@ -60,7 +61,8 @@ create table `animal` (
     `description` varchar(1000),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`location_id`) REFERENCES `location` (`id`),
-    FOREIGN KEY (`foster_parent_id`) REFERENCES `foster_parent` (`id`) 
+    FOREIGN KEY (`foster_parent_id`) REFERENCES `foster_parent` (`id`),
+    unique key `name_birthdate` (`animal_name`, `birthdate`)
 );
 
 --Create for Employee Animal
