@@ -25,19 +25,21 @@
                     <th>Spayed/Neutered</th>
                     <th>Description</th>
                 </tr>
+                {{#each animal}}
                 <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>NULL</td>
-                    <td>Gilbert</td>
-                    <td>dog</td>
-                    <td>Female</td>
-                    <td>Golden</td>
-                    <td>50</td>
-                    <td>4/29/2022</td>
-                    <td>False</td>
-                    <td>Young puppy, very cute</td>
+                    <td>{{animal_id}}</td>
+                    <td>{{location_id}}</td>
+                    <td>{{foster_parent_id}}</td>
+                    <td>{{animal_name}}</td>
+                    <td>{{species}}</td>
+                    <td>{{sex}}</td>
+                    <td>{{breed}}</td>
+                    <td>{{weight}}</td>
+                    <td>{{birthdate}}</td>
+                    <td>{{spayed/neutered}}</td>
+                    <td>{{description}}</td>
                 </tr>
+                {{/each}}
             </table>
         </div>
 
@@ -47,10 +49,12 @@
                     <th>Employee_ID</th>
                     <th>Animal_ID</th>
                 </tr>
+                {{#each employee-animal}}
                 <tr>
-                    <td>1</td>
-                    <td>1</td>
+                    <td>{{employee_id}}</td>
+                    <td>{{animal_id}}</td>
                 </tr>
+                {{/each}}
             </table>
         </div>
 
@@ -66,14 +70,12 @@
                 <label for="Zipcode">Location Zipcode:</label>
                 <input type="number" id="Zipcode" name="Zipcode">
                 <br>
-
-                <label for="First Name">Foster First Name: </label>
-                <input type="text" id="First_Name" name="First_Name">
-                <br>
-                <label for="Last Name">Foster Last Name: </label>
-                <input type="text" id="Last_Name" name="Last_Name">
-                <br>
-                
+                <select name="foster_parent">
+                    {{#each foster_parent}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+                <br>               
                 <label for="Animal Name">Name:</label>
                 <input type="text" id="Animal_Name" name="Animal_Name">
                 <br>
