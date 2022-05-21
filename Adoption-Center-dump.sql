@@ -27,7 +27,7 @@ create table `location`(
     `sq_ft` int(11) not null,
     `animal_in_rate` int(11) default 0,
     PRIMARY KEY (`id`),
-    unique key `full_address` (`address`, `city`, `zipcode`)
+    unique key `full_address` (`address`, `city`, `zip_code`)
 );
 
 --Create for Foster Parent 
