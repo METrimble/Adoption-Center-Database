@@ -45,7 +45,7 @@ app.get('/', (req, res) => { // the arrow notation means: function(req, res) { .
                    res.write("<html>\n<body>\n<h1>Tables in my CS340 database:</h1>\n<table border=\"1\">\n");
                    table_names.map(table_name => res.write(`<tr><td>${table_name}</td></tr>\n`));
 		      res.write("</table>\n");
-                   res.write("<img src=\"static/logo.png\" />\n</body>\n</html>\n");
+                   //res.write("<img src=\"static/logo.png\" />\n</body>\n</html>\n");
 		      res.end();
 		          });
 });
