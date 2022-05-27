@@ -13,17 +13,29 @@
         
         <div class="foster-parent-table">
             <table>
-                <tr> 
-                    {% for key in data[0].keys() %}
-                        <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
-                    {% endfor %}
-                </tr>
+                <thead>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Location ID</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Zip Code</th>
+                    <th>State</th>
+                </thead>
                 <tbody>
+                    {% for r in rows %}
                     <tr>
-                        {% for key in item.keys() %}
-                            <td>{{item[key]}}</td>
-                        {% endfor %}
+                        <td> {{ r.0 }} </td>
+                        <td> {{ r[1] }} </td>
+                        <td> {{ r[2] }} </td>
+                        <td> {{ r[3] }} </td>
+                        <td> {{ r[4] }} </td>
+                        <td> {{ r[5] }} </td>
+                        <td> {{ r[6] }} </td>
+                        <td> {{ r[7] }} </td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
