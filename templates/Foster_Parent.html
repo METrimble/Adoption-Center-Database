@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Foster Parents</title>
+    </head>
+    <body>
+        <div class="homepage-link">
+            <A HREF="homepage.html">Homepage</A>
+            <br>
+        </div>
+
+        <h1>Foster Parents</h1>
+        
+        <div class="foster-parent-table">
+            <table>
+                <tr> 
+                    {% for key in data[0].keys() %}
+                        <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                    {% endfor %}
+                </tr>
+                <tbody>
+                    <tr>
+                        {% for key in item.keys() %}
+                            <td>{{item[key]}}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--
+        <div class="insert">
+            <h3>Add a Foster Parent</h3>
+            <form id="addfoster_parent" action="/foster_parent" method="post">
+                First Name: <input type="text" name="first_name">
+                <br>
+                Last Name: <input type="text" id="last_name" name="last_name">
+                <br>
+                Location: <select name="location">
+                    {{#each location}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+                <br>
+                Address: <input type="text" name="address">
+                <br>
+                City: <input type="text" name="city">
+                <br>
+                Zip Code: <input type="number" name="zip_code">
+                <br>
+                State: <input type="text" name="state">
+                <br>
+                <input type="submit" id="submit" name="submit">
+            </form>
+        </div> -->
+    </body>
+</html>
