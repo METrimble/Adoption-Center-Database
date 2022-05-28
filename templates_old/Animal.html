@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Animals</title>
+    </head>
+    <body>
+        <div class="homepage-link">
+            <A HREF="homepage.html">Homepage</A>
+            <br>
+        </div>
+
+        <div class="add-animal-link">
+            <A HREF="Add_Animal.html">Add an Animal</A>
+            <br>
+        </div>
+
+        <div class="add-employee-animal-link">
+            <A HREF="Add_Employee_Animal.html">Associate an Employee to an Animal</A>
+            <br>
+        </div>
+
+        <h1>Animals</h1>
+        
+        <div class="animal-table">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Location ID</th>
+                    <th>Foster Parent ID</th>
+                    <th>Animal Name</th>
+                    <th>Animal Species</th>
+                    <th>Animal Breed</th>
+                    <th>Animal Weight</th>
+                    <th>Birthdate</th>
+                    <th>Spayed/Neutered</th>
+                    <th>Description</th>
+                </thead>
+                <tbody>
+                    {% for r in rows %}
+                    <tr>
+                        <td> {{ r.0 }} </td>
+                        <td> {{ r[1] }} </td>
+                        <td> {{ r[2] }} </td>
+                        <td> {{ r[3] }} </td>
+                        <td> {{ r[4] }} </td>
+                        <td> {{ r[5] }} </td>
+                        <td> {{ r[6] }} </td>
+                        <td> {{ r[7] }} </td>
+                        <td> {{ r[8] }} </td>
+                        <td> {{ r[9] }} </td>
+                        <td> <input type='button' name='Delete' value='Delete' onclick="window.location = '/Delete_Animal/{{r.0}}'"> </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<div class="insert">
+    <A HREF="Animal.html">Cancel</A>
+    <br>
+
+    <h3>Add an Animal</h3>
+    <form id="addanimal" action ="/add_animal" method="post">
+        <!--gives a drop down of locations for the user to select based on address name -->
+        Associated Adoption Center Location: <select name="location">
+            {% for l in location %}
+            <option value="{{ l[0] }}">{{ l[1] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <!--gives a drop down of locations for the user to select based on address name -->
+        Associated Foster Parent: <select name="foster_parent">
+            <option value="none">None</option>
+            {% for f in foster_parent %}
+            <option value="{{ f[0] }}">{{ f[1] }}</option>
+            {% endfor %}
+        </select>
+        <br>    
+
+        Name: <input type="text" name="animal_name">
+        <br>
+        Species:
+        <input type="radio" name="species" value="Dog"> Dog
+        <input type="radio" name="species" value="Cat"> Cat
+        <input type="radio" name="species" value="Other"> Other
+        <br>
+        Sex:
+        <input type="radio" name="sex" value="Male"> Male
+        <input type="radio" name="sex" value="Female"> Female
+        <input type="radio" name="sex" value="Other"> Other
+        <br>
+        Breed: <input type="text" name="breed">
+        <br>
+        Weight: <input type="number" name="weight" required>
+        <br>
+        Birthdate: <input type="date" name="Birthdate">
+        <br>
+        Spayed/Neutered:
+        <input type="radio" name="Spayed/Neutered" value="Yes"> Yes
+        <input type="radio" name="Spayed/Neutered" value="No"> No
+        <br>
+        Description:
+        <input type="text" name="Description">
+        <br>
+        <input type="submit" id="submit" name="submit">
+    </form>
+</div>
