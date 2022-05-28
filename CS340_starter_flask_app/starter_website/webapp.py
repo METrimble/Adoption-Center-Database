@@ -32,7 +32,7 @@ def hello():                                                #This defines the fu
     print(result)                                           #print result to terminal for debugging
     return render_template('test.html', rows=result)        #return render_template((page you want), rows=result) to render the page
 
-
+#main employees page
 @webapp.route('/employees')
 def disp_employees():
     print("/employees activated...")
@@ -40,8 +40,9 @@ def disp_employees():
     query = "select * from `employee`;"
     result = execute_query(db_connection, query).fetchall()
     print(result)
-    return render_template('test.html', rows=result)   #UPDATE AND MATCH WITH EMPLOYEE.J2
+    return render_template('Employee.html', rows=result)
 
+#main foster parents page
 @webapp.route('/parents')
 def disp_parents():
     print("/parents activated...")
@@ -51,6 +52,7 @@ def disp_parents():
     print(result)
     return render_template('Foster_Parent.html', rows=result)
 
+#main animals page
 @webapp.route('/animals')
 def disp_animals():
     print("/animals activated...")
@@ -58,8 +60,9 @@ def disp_animals():
     query = "select * from `animal`;"
     result = execute_query(db_connection, query).fetchall()
     print(result)
-    return render_template('Animals.html', rows=result) 
+    return render_template('Animal.html', rows=result) 
 
+#main locations page
 @webapp.route('/locations')
 def disp_locations():
     print("/locations activated...")
@@ -67,8 +70,9 @@ def disp_locations():
     query = "select * from `location`;"
     result = execute_query(db_connection, query).fetchall()
     print(result)
-    return render_template('Locations.html', rows=result) 
+    return render_template('Location.html', rows=result) 
 
+#add parents page
 @webapp.route('/add_parent', methods=['POST','GET'])
 def add_parent():
     print("/add_parent activated...")
@@ -91,12 +95,48 @@ def add_parent():
         query = 'insert into `foster_parent` (`first_name`, `last_name`, `location_id`, `address`, `city`, `zip_code`, `state`) values (%s, %s, %s, %s, %s, %s, %s);'
         data = (first_name, last_name, location, address, city, zip_code, state)
         execute_query(db_connection, query, data)
-        return ('Foster Parent added!')
+        return redirect('/parents')
 
-        
+@webapp.route('/add_animal', methods=['POST', 'GET'])
+def add_animal():
+    print("/add_animal activated...")
+    db_connection = connect_to_database()
+    if request.method == 'GET':
+        query_l = "select * from `location`;"
+        local = execute_query(db_connection, query_l).fetchall()
+        query_p = "select * from `foster_parent`;"
+        fp = execute_query(db_connection, query_p).fetchall()
+        return render_template('Add_Animal.html', location = local, foster_parent = fp)
+    elif request.method == 'POST':
+        print("...Adding new animal")
+        location = request.form['location']
+        foster_parent = request.form['foster_parent']
+        name = request.form['name']
+        species = request.form['species']
+        sex = request.form['sex']
+        breed = request.form['breed']
+        weight = request.form['weight']
+        birthdate = requet.form['birthdate']
+        s_p = request.form['Spayed/Neutered']
+        desc = request.form['Description']
+        query = 'insert into `animal` (`location_id`, `foster_parent_id`, `animal_name`, `animal_species`, `animal_breed`, `animal_weight`, `birthdate`, `spayed/neutered`, `description`) values (%s, %s, %s, %s, %s, %s, %s, %s, %s);'
+        data = (location, foster_parent, name, species, sex, breed, weight, birthdate, s_p, desc)
+        execute_query(db_connection, query, data)
+        return redirect('/animals')
+
+@webapp.route('/add_location', methods=['POST', 'GET'])
+def add_local():
+    print("/add_location activated...")
+    return
+    
+
+@webapp.route('/add_employee', methods=['POST', 'GET'])
+def add_emp():
+    return
 
 
 
+#EVERYTHING AFTER THIS IS EXAMPLE CODE TO LOOK AT 
 @webapp.route('/add_new_people', methods=['POST','GET'])
 def add_new_people():
     db_connection = connect_to_database()

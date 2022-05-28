@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Location</title>
+    </head>
+    <body>
+        <div class="homepage-link">
+            <A HREF="homepage.html">Homepage</A>
+            <br>
+        </div>
+
+        <div class="add-location-link">
+            <A HREF="Add_Location.html">Add a Location</A>
+            <br>
+        </div>
+
+        <div class="add-employee-location-link">
+            <A HREF="Add_Employee_Location.html">Associate an Employee to a Location</A>
+            <br>
+        </div>
+
+        <h1>Locations</h1>
+        
+        <div class="Location-table">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Zip Code</th>
+                    <th>State</th>
+                    <th>Sq_ft</th>
+                    <th>Animal in Rate</th>
+                </thead>
+                <tbody>
+                    {% for r in rows %}
+                    <tr>
+                        <td> {{ r.0 }} </td>
+                        <td> {{ r[1] }} </td>
+                        <td> {{ r[2] }} </td>
+                        <td> {{ r[3] }} </td>
+                        <td> {{ r[4] }} </td>
+                        <td> {{ r[5] }} </td>
+                        <td> {{ r[6] }} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
