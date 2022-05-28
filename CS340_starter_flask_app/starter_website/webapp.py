@@ -32,6 +32,10 @@ def hello():                                                #This defines the fu
     print(result)                                           #print result to terminal for debugging
     return render_template('test.html', rows=result)        #return render_template((page you want), rows=result) to render the page
 
+@webapp.route('/homepage')
+def homepage():
+    return render_template('homepage.html')
+
 #main employees page
 @webapp.route('/employees')
 def disp_employees():
@@ -116,7 +120,7 @@ def add_animal():
         sex = request.form['sex']
         breed = request.form['breed']
         weight = request.form['weight']
-        birthdate = requet.form['birthdate']
+        birthdate = request.form['birthdate']
         s_p = request.form['Spayed/Neutered']
         desc = request.form['Description']
         query = 'insert into `animal` (`location_id`, `foster_parent_id`, `animal_name`, `animal_species`, `animal_breed`, `animal_weight`, `birthdate`, `spayed/neutered`, `description`) values (%s, %s, %s, %s, %s, %s, %s, %s, %s);'
@@ -127,12 +131,47 @@ def add_animal():
 @webapp.route('/add_location', methods=['POST', 'GET'])
 def add_local():
     print("/add_location activated...")
-    return
+    db_connection = connect_to_database()
+    if request.method == 'GET':
+        name = None
+        return render_template('Add_Location.html', name = name)
+    elif request.method == 'POST':
+        print("...Adding new location")
+        address = request.form['address']
+        city = request.form['city']
+        zipcode = request.form['zipcode']
+        state = request.form['state']
+        sq_ft = request.form['sq_ft']
+        animal_in_rate = request.form['animal_in_rate']
+        query = 'insert into `location` (`address`, `city`, `zip_code`, `state`, `sq_ft`, `animal_in_rate`) values (%s, %s, %s, %s, %s, %s);'
+        data = (address, city, zipcode, state, sq_ft, animal_in_rate)
+        execute_query(db_connection, query, data)
+        return redirect('/locations')
     
 
 @webapp.route('/add_employee', methods=['POST', 'GET'])
 def add_emp():
-    return
+    print("/add_employee activated...")
+    db_connection = connect_to_database()
+    if request.method == 'GET':
+        name = None
+        return render_template('Add_Employee.html', name = name)
+    elif request.method == 'POST':
+        print("...Adding new employee")
+        fname = request.form['first_name']
+        lname = request.form['last_name']
+        type = request.form['type']
+        p_rate = request.form['pay_rate']
+        ssn = request.form['SSN']
+        email = request.form['email']
+        phone = request.form['phone']
+        hours = request.form['hours_worked']
+        hired = request.form['hiring_date']
+        query = 'insert into `employee` (`first_name`, `last_name`, `type`, `pay_rate`, `SSN`, `email`, `phone`, `hours_worked`, `hiring_date`) values (%s, %s, %s, %s, %s, %s, %s, %s, %s);'
+        data = (fname, lname, type, p_rate, ssn, email, phone, hours, hired)
+        execute_query(db_connection, query, data)
+        return redirect('/employees')
+    
 
 
 
