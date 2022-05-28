@@ -54,6 +54,7 @@ create table `animal` (
     `foster_parent_id` int(11) not null, 
     `animal_name`varchar(45),
     `animal_species`enum('dog', 'cat', 'other') not null,
+    `animal_sex`enum('male', 'female', 'other') not null,
     `animal_breed` varchar(45),
     `animal_weight` decimal(6,4) not null,
     `birthdate` date,
@@ -102,8 +103,8 @@ values ('Barbra', 'Stevens', 1, '2435 NE Treetop Lane', 'Eugene', '97450', 'OR')
 
 --Sample Data for animal
 insert into `animal`
-(`location_id`, `foster_parent_id`, `animal_name`, `animal_species`, `animal_breed`, `animal_weight`, `birthdate`, `spayed/neutered`, `description`)
-values (1, 1, 'Spoon', 'cat', 'Tabby', '10', '2020-04-15', '1', 'sweet boy');
+(`location_id`, `foster_parent_id`, `animal_name`, `animal_species`, `animal_sex`, `animal_breed`, `animal_weight`, `birthdate`, `spayed/neutered`, `description`)
+values (1, 1, 'Spoon', 'cat', 'male', 'Tabby', '10', '2020-04-15', '1', 'sweet boy');
 
 --Sample Data for employee-animal
 insert into `employee_animal`
