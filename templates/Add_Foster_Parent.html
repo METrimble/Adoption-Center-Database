@@ -9,7 +9,7 @@
         Last Name: <input type="text" id="last_name" name="last_name" required>
         <br>
         <!--gives a drop down of locations for the user to select based on address name -->
-        Associated Adoption Center Location: <select name="location" required>
+        Associated Adoption Center Location: <select name="location">
             {% for l in location %}
             <option value="{{ l[0] }}">{{ l[1] }}</option>
             {% endfor %}
