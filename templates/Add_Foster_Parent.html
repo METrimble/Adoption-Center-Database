@@ -3,25 +3,25 @@
     <br>
 
     <h3>Add a Foster Parent</h3>
-    <form id="addfoster_parent" action="/foster_parent" method="post">
-        First Name: <input type="text" name="first_name">
+    <form id="addfoster_parent" action="/add_parent" method="post">
+        First Name: <input type="text" name="first_name" required>
         <br>
-        Last Name: <input type="text" id="last_name" name="last_name">
+        Last Name: <input type="text" id="last_name" name="last_name" required>
         <br>
         <!--gives a drop down of locations for the user to select based on address name -->
-        Associated Adoption Center Location: <select name="location">
+        Associated Adoption Center Location: <select name="location" required>
             {% for l in location %}
             <option value="{{ l[0] }}">{{ l[1] }}</option>
             {% endfor %}
         </select>
         <br>
-        Address: <input type="text" name="address">
+        Address: <input type="text" name="address" required>
         <br>
-        City: <input type="text" name="city">
+        City: <input type="text" name="city" required>
         <br>
-        Zip Code: <input type="number" name="zip_code">
+        Zip Code: <input type="number" name="zip_code" required>
         <br>
-        State: <input type="text" name="state">
+        State: <input type="text" name="state" required>
         <br>
         <input type="submit" id="submit" name="submit">
     </form>
