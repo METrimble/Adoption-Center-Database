@@ -1,0 +1,23 @@
+<div class="insert">
+    <A HREF="/homepage">Cancel</A>
+    <br>
+
+    <h3>Associate Employee to Animal</h3>
+    <form id="addemployee_animal" action ="/add_employee_animal method="post">
+        <!--gives a drop down of animals for the user to select based on animal name -->
+        Animal: <select name="animal">
+            {% for a in animal %}
+            <option value="{{ a[0] }}">{{ a[1] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <!--gives a drop down of empoyees for the user to select based on employee name -->
+        Employee: <select name="employee">
+            {% for e in employee %}
+            <option value="{{ e[0] }}">{{ e[1] }}</option>
+            {% endfor %}
+        </select>
+        <br>    
+    </form>
+</div>
