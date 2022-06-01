@@ -1,4 +1,4 @@
-#!/nfs/stak/users/willijud/CS340/Final/Adoption-Center-Database/CS340_starter_flask_app/venv/bin/python
+#!/nfs/stak/users/willijud/public_html/Adoption-Center-Database/CS340_starter_flask_app/venv/bin/python
 
 import sys
 import getopt
