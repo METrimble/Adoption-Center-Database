@@ -1,20 +1,14 @@
 #This file is broadly adapted from the CS340_starter_flask_app that was provided to us
 #employee
-    #insert
+    #insert X
     #update
-    #delete
 #foster_parent
-    #insert
-    #update
-    #delete
+    #insert X
 #animal
-    #insert
-    #update
+    #insert X
     #delete
 #location
-    #insert
-    #update
-    #delete
+    #insert X
 
 from flask import Flask, render_template
 from flask import request, redirect
@@ -115,15 +109,15 @@ def add_animal():
         print("...Adding new animal")
         location = request.form['location']
         foster_parent = request.form['foster_parent']
-        name = request.form['name']
+        name = request.form['animal_name']
         species = request.form['species']
         sex = request.form['sex']
         breed = request.form['breed']
         weight = request.form['weight']
-        birthdate = request.form['birthdate']
+        birthdate = request.form['Birthdate']
         s_p = request.form['Spayed/Neutered']
         desc = request.form['Description']
-        query = 'insert into `animal` (`location_id`, `foster_parent_id`, `animal_name`, `animal_species`, `animal_breed`, `animal_weight`, `birthdate`, `spayed/neutered`, `description`) values (%s, %s, %s, %s, %s, %s, %s, %s, %s);'
+        query = 'insert into `animal` (`location_id`, `foster_parent_id`, `animal_name`, `animal_species`, `animal_sex`, `animal_breed`, `animal_weight`, `birthdate`, `spayed/neutered`, `description`) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);'
         data = (location, foster_parent, name, species, sex, breed, weight, birthdate, s_p, desc)
         execute_query(db_connection, query, data)
         return redirect('/animals')
@@ -139,7 +133,7 @@ def add_local():
         print("...Adding new location")
         address = request.form['address']
         city = request.form['city']
-        zipcode = request.form['zipcode']
+        zipcode = request.form['zip-code']
         state = request.form['state']
         sq_ft = request.form['sq_ft']
         animal_in_rate = request.form['animal_in_rate']
@@ -172,8 +166,17 @@ def add_emp():
         execute_query(db_connection, query, data)
         return redirect('/employees')
     
+@webapp.route('/delete_animal/<int:id>')
+def delete_animal(id):
+    db_connection = connect_to_database()
+    query = "delete from employee_animal where animal_id = %s"
+    data = (id,)
 
+    result = execute_query(db_connection, query, data)
 
+    query = "delete from animal where id = %s"
+    result = execute_query(db_connection, query, data)
+    return (str(result.rowcount) + "row deleted")
 
 #EVERYTHING AFTER THIS IS EXAMPLE CODE TO LOOK AT 
 @webapp.route('/add_new_people', methods=['POST','GET'])
