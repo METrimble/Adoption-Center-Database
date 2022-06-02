@@ -186,7 +186,7 @@ def emp_animal():
         return redirect('/employees')
 
 @webapp.route('/add_emp_local', methods=['POST', 'GET'])
-def emp_animal():
+def emp_local():
     print("/add_emp_animal activated...")
     db_connection = connect_to_database()
     if request.method == 'GET':
