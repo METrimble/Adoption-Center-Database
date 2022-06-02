@@ -166,6 +166,31 @@ def add_emp():
         execute_query(db_connection, query, data)
         return redirect('/employees')
     
+@webapp.route('/update_employee/<int:id>', methods=['POST', 'GET'])
+def add_emp(id):
+    print("/update_employee activated...")
+    db_connection = connect_to_database()
+    if request.method == 'GET':
+        query = "select * from employee where id = %s"
+        data = (id,)
+        result = execute_query(db_connection, query, data)
+        return render_template('Add_Employee.html', default = result,  )
+    elif request.method == 'POST':
+        print("...Updating employee")
+        fname = request.form['first_name']
+        lname = request.form['last_name']
+        type = request.form['type']
+        p_rate = request.form['pay_rate']
+        ssn = request.form['SSN']
+        email = request.form['email']
+        phone = request.form['phone']
+        hours = request.form['hours_worked']
+        hired = request.form['hiring_date']
+        query = 'insert into `employee` (`first_name`, `last_name`, `type`, `pay_rate`, `SSN`, `email`, `phone`, `hours_worked`, `hiring_date`) values (%s, %s, %s, %s, %s, %s, %s, %s, %s);'
+        data = (fname, lname, type, p_rate, ssn, email, phone, hours, hired)
+        execute_query(db_connection, query, data)
+        return redirect('/employees')
+    
 @webapp.route('/delete_animal/<int:id>')
 def delete_animal(id):
     db_connection = connect_to_database()
