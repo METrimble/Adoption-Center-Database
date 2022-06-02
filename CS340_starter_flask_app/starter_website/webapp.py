@@ -56,16 +56,16 @@ def disp_parents():
 #main animals page
 @webapp.route('/animals', methods=['POST', 'GET'])
 def disp_animals():
+    db_connection = connect_to_database()
     if request.method == 'GET':
         print("/animals activated...")
-        db_connection = connect_to_database()
         query = "select * from `animal`;"
         result = execute_query(db_connection, query).fetchall()
         print(result)
         return render_template('Animal.html', rows=result)
     elif request.method == 'POST':
         species = request.form['species']
-        query = "select * from `animal` where species = %s"
+        query = "select * from `animal` where animal_species = %s"
         data = (species, )
         result_a = execute_query(db_connection, query, data)
         return render_template('Animal.html', rows=result_a)

@@ -3,7 +3,7 @@
     <br>
 
     <h3>Associate Employee to Animal</h3>
-    <form id="addemployee_animal" action ="/add_employee_animal method="post">
+    <form id="addemployee_animal" action ="/add_emp_animal" method="post">
         <!--gives a drop down of animals for the user to select based on animal name -->
         Animal: <select name="animal">
             {% for a in animal %}
@@ -19,5 +19,6 @@
             {% endfor %}
         </select>
         <br>    
+        <input type="submit" id="submit" name="submit">
     </form>
 </div>
