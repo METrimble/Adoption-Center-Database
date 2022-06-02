@@ -166,15 +166,53 @@ def add_emp():
         execute_query(db_connection, query, data)
         return redirect('/employees')
     
+@webapp.route('/add_emp_animal', methods=['POST', 'GET'])
+def emp_animal():
+    print("/add_emp_animal activated...")
+    db_connection = connect_to_database()
+    if request.method == 'GET':
+        query_e = "select * from employee;"
+        emp_result = execute_query(db_connection, query_e)
+        query_a = "select * from animal;"
+        ani_result = execute_query(db_connection, query_a)
+        return render_template('Add_Employee_Animal.html', animal = ani_result, employee = emp_result)
+    elif request.method == 'POST':
+        print("...Associating emp + animal")
+        emp_id = request.form['employee']
+        ani_id = request.form['animal']
+        query = "insert into `employee_animal` (`employee_id`, `animal_id`) values (%s, %s);"
+        data = (emp_id, ani_id)
+        execute_query(db_connection, query, data)
+        return redirect('/employees')
+
+@webapp.route('/add_emp_local', methods=['POST', 'GET'])
+def emp_animal():
+    print("/add_emp_animal activated...")
+    db_connection = connect_to_database()
+    if request.method == 'GET':
+        query_e = "select * from employee;"
+        emp_result = execute_query(db_connection, query_e)
+        query_l = "select * from location;"
+        locate_result = execute_query(db_connection, query_l)
+        return render_template('Add_Employee_Location.html', location = locate_result, employee = emp_result)
+    elif request.method == 'POST':
+        print("...Associating emp + animal")
+        emp_id = request.form['employee']
+        loc_id = request.form['location']
+        query = "insert into `employee_location` (`employee_id`, `location_id`) values (%s, %s);"
+        data = (emp_id, loc_id)
+        execute_query(db_connection, query, data)
+        return redirect('/employees')    
+
 @webapp.route('/update_employee/<int:id>', methods=['POST', 'GET'])
-def add_emp(id):
+def update_emp(id):
     print("/update_employee activated...")
     db_connection = connect_to_database()
     if request.method == 'GET':
-        query = "select * from employee where id = %s"
+        query = "select * from employee where id = %s;"
         data = (id,)
         result = execute_query(db_connection, query, data)
-        return render_template('Add_Employee.html', default = result,  )
+        return render_template('Add_Employee.html', default = result)
     elif request.method == 'POST':
         print("...Updating employee")
         fname = request.form['first_name']
@@ -186,8 +224,8 @@ def add_emp(id):
         phone = request.form['phone']
         hours = request.form['hours_worked']
         hired = request.form['hiring_date']
-        query = 'insert into `employee` (`first_name`, `last_name`, `type`, `pay_rate`, `SSN`, `email`, `phone`, `hours_worked`, `hiring_date`) values (%s, %s, %s, %s, %s, %s, %s, %s, %s);'
-        data = (fname, lname, type, p_rate, ssn, email, phone, hours, hired)
+        query = 'update `employee` set `first_name` = %s, `last_name` = %s, `type` = %s, `pay_rate` = %s, `SSN` = %s, `email` = %s, `phone` = %s, `hours_worked` = %s, `hiring_date` = %s where `id` = %s;'
+        data = (fname, lname, type, p_rate, ssn, email, phone, hours, hired, id)
         execute_query(db_connection, query, data)
         return redirect('/employees')
     
