@@ -57,6 +57,42 @@
                     {% endfor %}
                 </tbody>
             </table>
+
+            <br>
+            <h1>Employees and Animals</h1>
+
+            <table>
+                <thead>
+                    <th>Employee ID</th>
+                    <th>Animal ID</th>
+                </thead>
+                <tbody>
+                    {% for ar in arows %}
+                    <tr>
+                        <td> {{ ar[0] }} </td>
+                        <td> {{ ar[1] }} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <br>
+            <h1>Employees and Locations</h1>
+
+            <table>
+                <thead>
+                    <th>Employee ID</th>
+                    <th>Location ID</th>
+                </thead>
+                <tbody>
+                    {% for lr in lrows %}
+                    <tr>
+                        <td> {{ lr[0] }} </td>
+                        <td> {{ lr[1] }} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </body>
 </html>
