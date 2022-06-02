@@ -35,10 +35,13 @@ def homepage():
 def disp_employees():
     print("/employees activated...")
     db_connection = connect_to_database()
-    query = "select * from `employee`;"
-    result = execute_query(db_connection, query).fetchall()
-    print(result)
-    return render_template('Employee.html', rows=result)
+    query_e = "select * from `employee`;"
+    result_e = execute_query(db_connection, query_e).fetchall()
+    query_ea = "select * from `employee_animal`;"
+    result_ea = execute_query(db_connection, query_ea).fetchall()
+    query_al = "select * from `employee_location`;"
+    result_al = execute_query(db_connection, query_al).fetchall()
+    return render_template('Employee.html', rows=result_e, arows=result_ea, lrows=result_al)
 
 #main foster parents page
 @webapp.route('/parents')
@@ -51,14 +54,21 @@ def disp_parents():
     return render_template('Foster_Parent.html', rows=result)
 
 #main animals page
-@webapp.route('/animals')
+@webapp.route('/animals', methods=['POST', 'GET'])
 def disp_animals():
-    print("/animals activated...")
-    db_connection = connect_to_database()
-    query = "select * from `animal`;"
-    result = execute_query(db_connection, query).fetchall()
-    print(result)
-    return render_template('Animal.html', rows=result) 
+    if request.method == 'GET':
+        print("/animals activated...")
+        db_connection = connect_to_database()
+        query = "select * from `animal`;"
+        result = execute_query(db_connection, query).fetchall()
+        print(result)
+        return render_template('Animal.html', rows=result)
+    elif request.method == 'POST':
+        species = request.form['species']
+        query = "select * from `animal` where species = %s"
+        data = (species, )
+        result_a = execute_query(db_connection, query, data)
+        return render_template('Animal.html', rows=result_a)
 
 #main locations page
 @webapp.route('/locations')
