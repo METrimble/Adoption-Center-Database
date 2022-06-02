@@ -1,0 +1,27 @@
+<html>
+<h1>Update {{employee.firstname}} {{employee.lastname}}:</h1>
+    <form id="update-employee" action="/update_employee" method="post">
+        First Name: <input type="text" name="first_name" value="{{employee.first_name}}">
+        <br>
+        Last Name: <input type="text" name="last_name" value="{{employee.last_name}}">
+        <br>
+        Type:
+        <input type="radio" name="type" value="Volunteer"> Volunteer
+        <input type="radio" name="type" value="Part-Time"> Part-Time
+        <input type="radio" name="type" value="Full-Time"> Full-Time
+        <input type="radio" name="type" value="Salaried"> Salaried
+        <br>
+        Pay Rate: <input type="number" name="pay_rate" value="{{employee.pay_rate}}">
+        <br>
+        SSN: <input type="number" name="SSN" value="{{employee.SSN}}">
+        <br>
+        Email: <input type="email" name="email" value="{{employee.email}}">
+        <br>
+        Phone #: <input type="tel" name="phone" value="{{employee.phone}}">
+        <br>
+        Hours Worked: <input type="number" name="hours_worked" value="{{employee.hours_worked}}">
+        <br>
+        Hiring Date: <input type="date" name="hiring_date" value="{{employee.hiring_date}}">
+        <br>
+        <input type="submit" id="submit" name="submit">
+    </form>
