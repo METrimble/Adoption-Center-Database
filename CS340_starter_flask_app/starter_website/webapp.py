@@ -243,7 +243,7 @@ def update_emp(id):
         query = "select * from employee where id = %s;"             #Get the employee we're updating
         data = (id,)
         result = execute_query(db_connection, query, data)
-        return render_template('Update_Employee.html', default = result)
+        return render_template('Update_Employee.html', employee = result)
     elif request.method == 'POST':                                  #If POST
         print("...Updating employee")
         fname = request.form['first_name']                          #Get contents from the form
