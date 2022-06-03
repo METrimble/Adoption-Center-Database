@@ -1,32 +1,43 @@
-<div class="insert">
-    <A HREF="/employees">Cancel</A>
-    <br>
+<!DOCTYPE html>
+<html>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <style>
+        table {width: 80%; border: 1px solid;}
+        th {border: 1px solid;}
+        td {border: 1px solid;}
+        body {font-family: 'Open Sans';}
+    </style>
+    
+    <div class="insert">
+        <A HREF="/employees">Cancel</A>
+        <br>
 
-    <!-- ADD EMPLOYEE and lets user enter their attributes using a form -->
-    <h3>Add an Employee</h3>  
-    <form id="addemployee" action="/add_employee" method="post">
-        First Name: <input type="text" name="first_name" required>
-        <br>
-        Last Name: <input type="text" name="last_name" required>
-        <br>
-        Type:
-        <input type="radio" name="type" value="Volunteer"> Volunteer
-        <input type="radio" name="type" value="Part-Time"> Part-Time
-        <input type="radio" name="type" value="Full-Time"> Full-Time
-        <input type="radio" name="type" value="Salaried"> Salaried
-        <br>
-        Pay Rate: <input type="number" name="pay_rate">
-        <br>
-        SSN: <input type="number" name="SSN">
-        <br>
-        Email: <input type="email" name="email">
-        <br>
-        Phone #: <input type="tel" name="phone" required>
-        <br>
-        Hours Worked: <input type="number" name="hours_worked" required>
-        <br>
-        Hiring Date: <input type="date" name="hiring_date" required>
-        <br>
-        <input type="submit" id="submit" name="submit">
-    </form>
-</div>
+        <!-- ADD EMPLOYEE and lets user enter their attributes using a form -->
+        <h3>Add an Employee</h3>  
+        <form id="addemployee" action="/add_employee" method="post">
+            First Name: <input type="text" name="first_name" required>
+            <br>
+            Last Name: <input type="text" name="last_name" required>
+            <br>
+            Type:
+            <input type="radio" name="type" value="Volunteer"> Volunteer
+            <input type="radio" name="type" value="Part-Time"> Part-Time
+            <input type="radio" name="type" value="Full-Time"> Full-Time
+            <input type="radio" name="type" value="Salaried"> Salaried
+            <br>
+            Pay Rate: <input type="number" name="pay_rate">
+            <br>
+            SSN: <input type="number" name="SSN">
+            <br>
+            Email: <input type="email" name="email">
+            <br>
+            Phone #: <input type="tel" name="phone" required>
+            <br>
+            Hours Worked: <input type="number" name="hours_worked" required>
+            <br>
+            Hiring Date: <input type="date" name="hiring_date" required>
+            <br>
+            <input type="submit" id="submit" name="submit">
+        </form>
+    </div>
+</html>

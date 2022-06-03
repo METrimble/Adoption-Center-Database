@@ -1,53 +1,64 @@
-<div class="insert">
-    <A HREF="/animals">Cancel</A>
-    <br>
+<!DOCTYPE html>
+<html>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <style>
+        table {width: 80%; border: 1px solid;}
+        th {border: 1px solid;}
+        td {border: 1px solid;}
+        body {font-family: 'Open Sans';}
+    </style>
 
-    <h3>Add an Animal</h3>
-    
-    <!-- ADD ANIMAL - insert: animal attributes and foreign key drop downs --> 
-    <form id="addanimal" action ="/add_animal" method="post">
-        <!--gives a drop down of locations for the user to select based on address name -->
-        Associated Adoption Center Location: <select name="location">
-            {% for l in location %}
-            <option value="{{ l[0] }}">{{ l[1] }}</option>
-            {% endfor %}
-        </select>
+    <div class="insert">
+        <A HREF="/animals">Cancel</A>
         <br>
 
-        <!--gives a drop down of locations for the user to select based on address name -->
-        Associated Foster Parent: <select name="foster_parent">
-            <option value="none">None</option>
-            {% for f in foster_parent %}
-            <option value="{{ f[0] }}">{{ f[1] }}</option>
-            {% endfor %}
-        </select>
-        <br>    
+        <h3>Add an Animal</h3>
+        
+        <!-- ADD ANIMAL - insert: animal attributes and foreign key drop downs --> 
+        <form id="addanimal" action ="/add_animal" method="post">
+            <!--gives a drop down of locations for the user to select based on address name -->
+            Associated Adoption Center Location: <select name="location">
+                {% for l in location %}
+                <option value="{{ l[0] }}">{{ l[1] }}</option>
+                {% endfor %}
+            </select>
+            <br>
 
-        Name: <input type="text" name="animal_name">
-        <br>
-        Species:
-        <input type="radio" name="species" value="dog"> Dog
-        <input type="radio" name="species" value="cat"> Cat
-        <input type="radio" name="species" value="other"> Other
-        <br>
-        Sex:
-        <input type="radio" name="sex" value="male"> Male
-        <input type="radio" name="sex" value="female"> Female
-        <input type="radio" name="sex" value="other"> Other
-        <br>
-        Breed: <input type="text" name="breed">
-        <br>
-        Weight: <input type="number" name="weight" required>
-        <br>
-        Birthdate: <input type="date" name="Birthdate">
-        <br>
-        Spayed/Neutered:
-        <input type="radio" name="Spayed/Neutered" value="Yes"> Yes
-        <input type="radio" name="Spayed/Neutered" value="No"> No
-        <br>
-        Description:
-        <input type="text" name="Description">
-        <br>
-        <input type="submit" id="submit" name="submit">
-    </form>
-</div>
+            <!--gives a drop down of locations for the user to select based on address name -->
+            Associated Foster Parent: <select name="foster_parent">
+                <option value="none">None</option>
+                {% for f in foster_parent %}
+                <option value="{{ f[0] }}">{{ f[1] }}</option>
+                {% endfor %}
+            </select>
+            <br>    
+
+            Name: <input type="text" name="animal_name">
+            <br>
+            Species:
+            <input type="radio" name="species" value="dog"> Dog
+            <input type="radio" name="species" value="cat"> Cat
+            <input type="radio" name="species" value="other"> Other
+            <br>
+            Sex:
+            <input type="radio" name="sex" value="male"> Male
+            <input type="radio" name="sex" value="female"> Female
+            <input type="radio" name="sex" value="other"> Other
+            <br>
+            Breed: <input type="text" name="breed">
+            <br>
+            Weight: <input type="number" name="weight" required>
+            <br>
+            Birthdate: <input type="date" name="Birthdate">
+            <br>
+            Spayed/Neutered:
+            <input type="radio" name="Spayed/Neutered" value="Yes"> Yes
+            <input type="radio" name="Spayed/Neutered" value="No"> No
+            <br>
+            Description:
+            <input type="text" name="Description">
+            <br>
+            <input type="submit" id="submit" name="submit">
+        </form>
+    </div>
+</html>

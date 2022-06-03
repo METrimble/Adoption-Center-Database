@@ -1,7 +1,16 @@
+<!DOCTYPE html>
 <html>
-<!-- UPDATE form which is similar to an insert form, but uses the row information from the button clicked on in the Employee page -->
-<h1>Update {{employee.firstname}} {{employee.lastname}}:</h1>
-    <form id="update-employee" action="/update_employee" method="post">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <style>
+        table {width: 80%; border: 1px solid;}
+        th {border: 1px solid;}
+        td {border: 1px solid;}
+        body {font-family: 'Open Sans';}
+    </style>
+
+    <!-- UPDATE form which is similar to an insert form, but uses the row information from the button clicked on in the Employee page -->
+    <h1>Update {{employee.firstname}} {{employee.lastname}}:</h1>
+    <form id="update-employee" action="/update_employee/{{employee.id}}" method="post">
         First Name: <input type="text" name="first_name" value="{{employee.first_name}}">
         <br>
         Last Name: <input type="text" name="last_name" value="{{employee.last_name}}">
@@ -24,5 +33,7 @@
         <br>
         Hiring Date: <input type="date" name="hiring_date" value="{{employee.hiring_date}}">
         <br>
-        <input type="submit" id="submit" name="submit">
+        <!-- <input type="submit" id="submit" name="submit"> -->
     </form>
+    <button onclick="window.location = '/update_employee/{{employee.id}}'">Update</button>
+</html>
