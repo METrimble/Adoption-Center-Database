@@ -1,26 +1,36 @@
-<div class="insert">
-    <A HREF="/homepage">Cancel</A>
-    <br>
-
-    <h3>Associate Employee to Animal</h3>
-
-    <!-- Adding the asscoiations between the M:M relationship between animal & employee using drop downs -->
-    <form id="addemployee_animal" action ="/add_emp_animal" method="post">
-        <!--gives a drop down of animals for the user to select based on animal name -->
-        Animal: <select name="animal">
-            {% for a in animal %}
-            <option value="{{ a[0] }}">{{ a[1] }}</option>
-            {% endfor %}
-        </select>
+<html>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <style>
+        table {width: 80%; border: 1px solid;}
+        th {border: 1px solid;}
+        td {border: 1px solid;}
+        body {font-family: 'Open Sans';}
+    </style>
+    
+    <div class="insert">
+        <A HREF="/homepage">Cancel</A>
         <br>
 
-        <!--gives a drop down of empoyees for the user to select based on employee name -->
-        Employee: <select name="employee">
-            {% for e in employee %}
-            <option value="{{ e[0] }}">{{ e[1] }}</option>
-            {% endfor %}
-        </select>
-        <br>    
-        <input type="submit" id="submit" name="submit">
-    </form>
-</div>
+        <h3>Associate Employee to Animal</h3>
+
+        <!-- Adding the asscoiations between the M:M relationship between animal & employee using drop downs -->
+        <form id="addemployee_animal" action ="/add_emp_animal" method="post">
+            <!--gives a drop down of animals for the user to select based on animal name -->
+            Animal: <select name="animal">
+                {% for a in animal %}
+                <option value="{{ a[0] }}">{{ a[1] }}</option>
+                {% endfor %}
+            </select>
+            <br>
+
+            <!--gives a drop down of empoyees for the user to select based on employee name -->
+            Employee: <select name="employee">
+                {% for e in employee %}
+                <option value="{{ e[0] }}">{{ e[1] }}</option>
+                {% endfor %}
+            </select>
+            <br>    
+            <input type="submit" id="submit" name="submit">
+        </form>
+    </div>
+</html>

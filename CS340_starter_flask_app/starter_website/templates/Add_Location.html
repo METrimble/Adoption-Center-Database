@@ -1,23 +1,33 @@
-<div class="insert">
-    <A HREF="/locations">Cancel</A>
-    <br>
+<!DOCTYPE html>
+<html>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <style>
+        table {width: 80%; border: 1px solid;}
+        th {border: 1px solid;}
+        td {border: 1px solid;}
+        body {font-family: 'Open Sans';}
+    </style>
+    <div class="insert">
+        <A HREF="/locations">Cancel</A>
+        <br>
 
-    <h3>Add Location</h3>
+        <h3>Add Location</h3>
 
-    <!-- ADD LOCATION user adds a location by entering attributes into a form -->
-    <form id="addlocation" action ="/add_location" method="post">
-        Address: <input type="text" name="address" required>
-        <br>
-        City: <input type="text" name="city" required>
-        <br>
-        Zipcode: <input type="number" name="zip-code" required>
-        <br>
-        State: <input type="text" name="state" required>
-        <br>
-        Sq. Ft: <input type="number" name="sq_ft" required>
-        <br>
-        Animal_in_Rate: <input type="number" name="animal_in_rate" required>
-        <br>
-        <input type="submit" id="submit" name="submit">
-    </form>
-</div>
+        <!-- ADD LOCATION user adds a location by entering attributes into a form -->
+        <form id="addlocation" action ="/add_location" method="post">
+            Address: <input type="text" name="address" required>
+            <br>
+            City: <input type="text" name="city" required>
+            <br>
+            Zipcode: <input type="number" name="zip-code" required>
+            <br>
+            State: <input type="text" name="state" required>
+            <br>
+            Sq. Ft: <input type="number" name="sq_ft" required>
+            <br>
+            Animal_in_Rate: <input type="number" name="animal_in_rate" required>
+            <br>
+            <input type="submit" id="submit" name="submit">
+        </form>
+    </div>
+</html>
