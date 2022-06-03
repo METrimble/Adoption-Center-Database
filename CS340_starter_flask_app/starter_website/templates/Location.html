@@ -20,6 +20,7 @@
 
         <h1>Locations</h1>
         
+        <!-- SHOWS the locations stored in the database -->
         <div class="Location-table">
             <table>
                 <thead>
@@ -32,6 +33,7 @@
                     <th>Animal in Rate</th>
                 </thead>
                 <tbody>
+                <!-- gets rows from the webapp func, which we then display the attributes using the asscoiated index num -->
                     {% for r in rows %}
                     <tr>
                         <td> {{ r.0 }} </td>

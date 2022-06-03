@@ -15,6 +15,7 @@
 
         <h1>Foster Parents</h1>
         
+        <!-- SHOWS all current foster parents in the database -->
         <div class="foster-parent-table">
             <table>
                 <thead>
@@ -28,6 +29,7 @@
                     <th>State</th>
                 </thead>
                 <tbody>
+                    <!-- gets rows from the webapp func, which we then display the attributes using the asscoiated index num -->
                     {% for r in rows %}
                     <tr>
                         <td> {{ r.0 }} </td>

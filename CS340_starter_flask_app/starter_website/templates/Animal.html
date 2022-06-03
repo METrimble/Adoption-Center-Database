@@ -18,6 +18,7 @@
             <br>
         </div>
 
+        <!-- FILTER/SEARCH ANIMALS allows the user to filter animals by species -->
         <h1>Filter Animals</h1>
         <form id="filteranimal" action="/animals" method="post">
             By Species:
@@ -30,6 +31,7 @@
 
         <h1>Animals</h1>
         
+        <!-- SHOWS all current animals in the database -->
         <div class="animal-table">
             <table>
                 <thead>
@@ -45,6 +47,7 @@
                     <th>Description</th>
                 </thead>
                 <tbody>
+                    <!-- gets rows from the webapp func, which we then display the attributes using the asscoiated index num -->
                     {% for r in rows %}
                     <tr>
                         <td> {{ r.0 }} </td>
@@ -57,7 +60,8 @@
                         <td> {{ r[7] }} </td>
                         <td> {{ r[8] }} </td>
                         <td> {{ r[9] }} </td>
-                        <td> <input type='button' name='Delete' value='Delete' onclick="window.location = '/delete_animal/{{r.0}}'"> </td>
+                        <!--DELETE BUTTON for "adopting" animals -->
+                        <td> <input type='button' name='Delete' value='Adopt' onclick="window.location = '/delete_animal/{{r.0}}'"> </td>
                     </tr>
                     {% endfor %}
                 </tbody>

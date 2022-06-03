@@ -25,6 +25,7 @@
 
         <h1>Employees</h1>
         
+        <!-- SHOWS all current employees in the database -->
         <div class="employee-table">
             <table>
                 <thead>
@@ -40,6 +41,7 @@
                     <th>Hiring Date</th>
                 </thead>
                 <tbody>
+                    <!-- gets rows from the webapp func, which we then display the attributes using the asscoiated index num -->
                     {% for r in rows %}
                     <tr>
                         <td> {{ r.0 }} </td>
@@ -52,6 +54,7 @@
                         <td> {{ r[7] }} </td>
                         <td> {{ r[8] }} </td>
                         <td> {{ r[9] }} </td>
+                        <!-- UPDATE BUTTON for changing an employee's attributes -->
                         <td> <input type='button' name='Update' value='Update' onclick="window.location = '/update_employee/{{r.0}}'"> </td>
                     </tr>
                     {% endfor %}
@@ -61,6 +64,7 @@
             <br>
             <h1>Employees and Animals</h1>
 
+            <!-- SHOWS the M:M relationships between two entities -->
             <table>
                 <thead>
                     <th>Employee ID</th>
@@ -79,6 +83,7 @@
             <br>
             <h1>Employees and Locations</h1>
 
+            <!-- SHOWS the M:M relationships between two entities -->
             <table>
                 <thead>
                     <th>Employee ID</th>
