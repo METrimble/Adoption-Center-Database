@@ -6,7 +6,7 @@ create table `employee`(
     `first_name` varchar(255) not null,
     `last_name` varchar(255) not null, 
     `type` enum('Volunteer', 'Part-time', 'Full-Time', 'Salaried') not null,
-    `pay_rate` int(11), not null default 0,
+    `pay_rate` int(11) not null default 0,
     `SSN` int(9),
     `email` varchar(254),
     `phone` int(15) not null,
@@ -51,7 +51,7 @@ drop table if exists `animal`;
 create table `animal` (
     `id` int(11) auto_increment,
     `location_id` int(11) not null,
-    `foster_parent_id` int(11), 
+    `foster_parent_id` int(11) not null, 
     `animal_name`varchar(50),
     `animal_species`enum('dog', 'cat', 'other') not null,
     `animal_sex`enum('male', 'female', 'other') not null,

@@ -1,2 +1,0 @@
-old code for node.js goes in this directory.
-Switched to python/flask

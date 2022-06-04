@@ -36,7 +36,8 @@ insert into `animal` (`location_id`, `foster_parent_id`, `animal_name`, `animal_
 values ((select `id` from `location` where `address` = :addressin and `city` = :cityin and `zipcode` = :zip_codein), (select `id` from `foster_parent` where `first_name` = :first_namein and `last_name` = :last_namein), :animal_namein, :animal_speciesin, :animal_breedin, :animal_weightin, :birthdatein, :spayed/neuteredin, :descriptionin);
 
 --Delete Animal
-delete * from `animal` where `animal_name` = :animal_namein and `birthdate` = :birthdatein;
+delete from employee_animal where animal_id = %s;
+delete from animal where id = %s;
 
 --View by name
 select * from `animal` where 'animal_name' = :animal_namein;

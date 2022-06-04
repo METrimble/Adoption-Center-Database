@@ -240,9 +240,10 @@ def update_emp(id):
     print("/update_employee activated...")
     db_connection = connect_to_database()
     if request.method == 'GET':                                     #If GET
-        query = "select * from employee where id = %s;"             #Get the employee we're updating
-        data = (id,)
-        result = execute_query(db_connection, query, data)
+        query = 'select * from employee where id = %s;' % (id)             #Get the employee we're updating
+        #data = (id,)
+        result = execute_query(db_connection, query).fetchone()
+        print(result)
         return render_template('Update_Employee.html', employee = result)
     elif request.method == 'POST':                                  #If POST
         print("...Updating employee")
